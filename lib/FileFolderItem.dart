@@ -7,10 +7,14 @@ class FileFolderItem {
   final bool isFile;
   final bool isFolder;
 
-  FileFolderItem({this.name, this.path, this.isFile, this.isFolder});
+  FileFolderItem({
+    this.name,
+    this.path,
+    this.isFile,
+    this.isFolder,
+  });
 
-
-  void printItem(){
-    print(this.name+" "+this.path);
+  void printItem() {
+    print(this.name + " " + this.path);
   }
 }

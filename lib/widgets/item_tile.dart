@@ -20,7 +20,8 @@ class ItemTile extends StatelessWidget {
       child: ListTile(
         onTap: () {
           print(this.path);
-          Provider.of<FileFolderListWidget>(context,listen:false).genList(this.path);
+          Provider.of<FileFolderListWidget>(context, listen: false)
+              .genList(this.path);
         },
         leading: isFile ? FlutterLogo() : Icon(Icons.folder_open),
         title: Text(this.name),

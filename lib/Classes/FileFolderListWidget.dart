@@ -13,7 +13,6 @@ class FileFolderListWidget extends ChangeNotifier {
 
   String get getCurrentLocation => currentLocation;
 
-
   ItemTile genWidgetFromFileFolderData(FileFolderItem fileFolderItem) {
     return ItemTile(
         name: fileFolderItem.name,
@@ -23,13 +22,16 @@ class FileFolderListWidget extends ChangeNotifier {
   }
 
   void genList(String currLocation) {
-    if(currLocation == "../"){
+    if (currLocation == "../") {
       int currLocationSplitLength = currentLocation.split("/").length;
-      currentLocation = currentLocation.split("/").sublist(0,currLocationSplitLength-1).join("/");
-    }else{
+      currentLocation = currentLocation
+          .split("/")
+          .sublist(0, currLocationSplitLength - 1)
+          .join("/");
+    } else {
       currentLocation = currLocation;
     }
-    
+
     _ffList = [genWidgetFromFileFolderData(backItem)];
     var myDir = new Directory(currentLocation);
     List<FileSystemEntity> filesNfolders = myDir.listSync();
@@ -59,5 +61,4 @@ class FileFolderListWidget extends ChangeNotifier {
 
     notifyListeners();
   }
-  
 }
